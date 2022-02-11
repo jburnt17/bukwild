@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import pagesJSON from "./info.json";
+import PageUI from "./components/PageUI/PageUI";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <main className="App">
+        <Routes>
+          {pagesJSON.pages?.map((page, i) => (
+            <Route
+              key={`page-${i}`}
+              path={`/${page.slug}`}
+              element={<PageUI active={i} page={page} />}
+            />
+          ))}
+
+          {/* handles "/" path to redirect back to the industries page */}
+          <Route path="/" element={<Navigate replace to="/industries" />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
   );
 }
 

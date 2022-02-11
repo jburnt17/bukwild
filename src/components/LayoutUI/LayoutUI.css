@@ -1,0 +1,44 @@
+.nav__body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.nav__con {
+  margin: 1rem 0;
+}
+.nav__logo {
+  margin-bottom: .8rem;
+  cursor: pointer;
+}
+.nav__menu {
+  list-style: none;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+}
+.nav__menu > li {
+  transition: .1s all ease-out;
+  font-size: .9rem;
+  margin: .5rem 0;
+}
+.nav__menu > li:hover {
+  color: #ffc004;
+}
+.nav__menu__active {
+  color: #ffc004;
+}
+.nav__contact {
+  background-color: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 1.2px solid white;
+  height: 2.5rem;
+  padding: 0 2rem;
+  transition: .1s all ease-out;
+}
+.nav__contact:hover {
+  color: #ffc004;
+  cursor: pointer;
+  border: 1.2px solid #ffc004;
+}
