@@ -12,7 +12,7 @@ function App() {
             <Route
               key={`page-${i}`}
               path={`/${page.slug}`}
-              element={<PageUI active={i} page={page} />}
+              element={<PageUI active={i} page={page} pages={pagesJSON.pages} />}
             />
           ))}
 

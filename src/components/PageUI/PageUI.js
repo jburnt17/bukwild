@@ -4,13 +4,13 @@ import { ArrowNarrowRightIcon } from "@heroicons/react/outline";
 import "./PageUI.css";
 import { useNavigate } from "react-router-dom";
 
-function PageUI({ page, active }) {
+function PageUI({ page, active, pages }) {
   const { blocks } = page;
   const navigate = useNavigate();
 
   return (
     <div className={`body__${page.slug}`}>
-      <LayoutUI active={active} />
+      <LayoutUI active={active} pages={pages} />
       <main className="main__section">
         <h1 className="main__headline">{blocks[0].headline}</h1>
         <sub className="main__subhead">{blocks[0].subhead}</sub>

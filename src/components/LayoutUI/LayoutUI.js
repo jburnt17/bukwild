@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./LayoutUI.css";
 
-function LayoutUI({ active }) {
+function LayoutUI({ active, pages }) {
   const navigate = useNavigate();
   return (
     <nav className="nav__body">
@@ -13,7 +13,7 @@ function LayoutUI({ active }) {
           onClick={() => navigate("/industries")}
         />
         <ul className="nav__menu">
-          <li
+          {/* <li
             onClick={() => navigate("/industries")}
             className={active === 0 ? "nav__menu__active" : null}
           >
@@ -30,7 +30,17 @@ function LayoutUI({ active }) {
             className={active === 2 ? "nav__menu__active" : null}
           >
             About Us
-          </li>
+          </li> */}
+
+          {/* Had idea to just drill pages down to LayoutUI and map to make each nav link (saved all code above) */}
+          {pages.map((page, i) => (
+            <li
+              className={active === i ? "nav__menu__active" : null}
+              onClick={() => navigate(`/${page.slug}`)}
+            >
+              {page.title}
+            </li>
+          ))}
         </ul>
       </section>
       <section className="nav__con">
