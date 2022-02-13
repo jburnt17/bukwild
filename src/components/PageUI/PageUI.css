@@ -1,5 +1,4 @@
-.body__industries {
-  background-image: url("../../../public/backgrounds/slide_one.jpg");
+.body__main {
   background-color: rgba(0, 0, 0, 0.2);
   background-blend-mode: multiply;
   background-repeat: no-repeat;
@@ -11,36 +10,17 @@
   align-items: center;
   min-height: 100vh;
   padding: 0 15%;
+}
+.body__industries {
+  background-image: url("../../../public/backgrounds/slide_one.jpg");
+
 }
 .body__services {
   background-image: url("../../../public/backgrounds/slide_two.jpg");
-  background-color: rgba(0, 0, 0, 0.2);
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: .3s background-image ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0 15%;
 }
 .body__about-us {
   background-image: url("../../../public/backgrounds/slide_three.jpg");
-  background-color: rgba(0, 0, 0, 0.2);
-  background-blend-mode: multiply;
-  background-repeat: no-repeat;
-  background-size: cover;
-  transition: .3s background-image ease-in-out;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 100vh;
-  padding: 0 15%;
 }
-
 
 
 .main__section {
@@ -75,7 +55,6 @@
     margin-right: 0;
   }
 }
-
 
 
 

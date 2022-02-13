@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useTransition, animated } from "react-spring";
+import { useTransition, animated, config } from "react-spring";
 import "./LayoutUI.css";
 
 function LayoutUI({ active, pages }) {
@@ -9,11 +9,13 @@ function LayoutUI({ active, pages }) {
   const transitionRight = useTransition(null, {
     from: { x: -1000, opacity: 0 },
     enter: { x: 0, opacity: 1 },
+    config: config.slow
   });
 
   const transitionLeft = useTransition(null, {
     from: { x: 1000, opacity: 0 },
     enter: { x: 0, opacity: 1 },
+    config: config.slow
   });
 
   return (

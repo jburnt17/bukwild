@@ -1,6 +1,6 @@
 import React from "react";
 import LayoutUI from "../LayoutUI/LayoutUI.js";
-import { useTransition, animated } from "react-spring";
+import { useTransition, animated, config } from "react-spring";
 import { ArrowNarrowRightIcon } from "@heroicons/react/outline";
 import "./PageUI.css";
 
@@ -9,10 +9,11 @@ function PageUI({ page, active, pages }) {
   const transitionUp = useTransition(null, {
     from: { y: 1000, opacity: 0 },
     enter: { y: 0, opacity: 1 },
+    config: config.slow
   });
 
   return (
-    <div className={`body__${page.slug}`}>
+    <div className={`body__main body__${page.slug}`}>
       <LayoutUI active={active} pages={pages} />
       {transitionUp((style) => (
         <animated.main className="main__section" style={style}>
