@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useTransition, animated } from "react-spring";
 import "./LayoutUI.css";
 
 function LayoutUI({ active, pages }) {
   const navigate = useNavigate();
+
+  const transitionRight = useTransition(null, {
+    from: { x: -1000, opacity: 0 },
+    enter: { x: 0, opacity: 1 },
+  });
+
+  const transitionLeft = useTransition(null, {
+    from: { x: 1000, opacity: 0 },
+    enter: { x: 0, opacity: 1 },
+  });
+
   return (
     <nav className="nav__body">
-      <section className="nav__con">
-        <img
-          src="logo.svg"
-          className="nav__logo"
-          onClick={() => navigate("/industries")}
-        />
-        <ul className="nav__menu">
-          {/* <li
+      {transitionRight((style) => (
+        <animated.section className="nav__con" style={style}>
+          <img
+            src="logo.svg"
+            className="nav__logo"
+            onClick={() => navigate("/industries")}
+          />
+          <ul className="nav__menu">
+            {/* <li
             onClick={() => navigate("/industries")}
             className={active === 0 ? "nav__menu__active" : null}
           >
@@ -32,28 +45,31 @@ function LayoutUI({ active, pages }) {
             About Us
           </li> */}
 
-          {/* Had idea to just drill pages down to LayoutUI and map to make each nav link (saved all code above) */}
-          {pages.map((page, i) => (
-            <li
-              className={active === i ? "nav__menu__active" : null}
-              onClick={() => navigate(`/${page.slug}`)}
-            >
-              {page.title}
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className="nav__con">
-        <button
-          className="nav__contact"
-          onClick={() =>
-            (window.location =
-              "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jburnt17@gmail.com")
-          }
-        >
-          Contact Us
-        </button>
-      </section>
+            {/* Had idea to just drill pages down to LayoutUI and map to make each nav link (saved all code above) */}
+            {pages.map((page, i) => (
+              <li
+                className={active === i ? "nav__menu__active" : null}
+                onClick={() => navigate(`/${page.slug}`)}
+              >
+                {page.title}
+              </li>
+            ))}
+          </ul>
+        </animated.section>
+      ))}
+      {transitionLeft((style) => (
+        <animated.section className="nav__con" style={style}>
+          <button
+            className="nav__contact"
+            onClick={() =>
+              (window.location =
+                "https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=jburnt17@gmail.com")
+            }
+          >
+            Contact Us
+          </button>
+        </animated.section>
+      ))}
     </nav>
   );
 }
