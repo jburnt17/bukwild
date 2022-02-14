@@ -9,13 +9,11 @@ function LayoutUI({ active, pages }) {
   const transitionRight = useTransition(null, {
     from: { x: -1000, opacity: 0 },
     enter: { x: 0, opacity: 1 },
-    config: config.slow
   });
 
   const transitionLeft = useTransition(null, {
     from: { x: 1000, opacity: 0 },
     enter: { x: 0, opacity: 1 },
-    config: config.slow
   });
 
   return (

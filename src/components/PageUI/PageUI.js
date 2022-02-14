@@ -8,7 +8,7 @@ function PageUI({ page, active, pages }) {
   const { blocks } = page;
   const transitionUp = useTransition(null, {
     from: { y: 1000, opacity: 0 },
-    enter: { y: 0, opacity: 1 },
+    enter: { y: 0, opacity: .8, delay: 250 },
     config: config.slow
   });
 
