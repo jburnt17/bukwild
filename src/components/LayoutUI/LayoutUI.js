@@ -17,7 +17,7 @@ function LayoutUI({ active, pages }) {
   });
 
   return (
-    <nav className="nav__body">
+    <nav className="nav">
       {transitionRight((style) => (
         <animated.section className="nav__con" style={style}>
           <img

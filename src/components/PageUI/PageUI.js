@@ -13,7 +13,7 @@ function PageUI({ page, active, pages }) {
   });
 
   return (
-    <div className={`body__main body__${page.slug}`}>
+    <div className={`body body__${page.slug}`}>
       <LayoutUI active={active} pages={pages} />
       {transitionUp((style) => (
         <animated.main className="main__section" style={style}>
